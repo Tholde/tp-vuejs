@@ -37,24 +37,21 @@ function update(){
   const email = document.getElementById("exampleEmail");
   const devise = document.getElementById("exampleDevise");
   const idval = document.getElementById('idval');
-  // for (let i = 0; i < persons.length; i++) {
-  //   if (persons[i].id === idval) {
-  //     persons[i].name = name.value;
-  //     persons[i].email = email.value;
-  //     persons[i].devise = devise.value;
-  //     console.log(persons[i]);
-  //     localStorage.setItem('users', JSON.stringify(persons));
-  //     const tbody = document.getElementById('tb');
-  //     tbody.innerHTML = '';
-  //     displayAll();
-  //   }
-  // }
   for (let i = 0; i < persons.length; i++) {
-    if (persons[i].id !== idval.value) {
-      alert("Tsy azo!");
-    } else {
+    if (persons[i].id === idval) {
+      persons[i].name = name.value;
+      persons[i].email = email.value;
+      persons[i].devise = devise.value;
       console.log(persons[i]);
-      alert(persons[i])
+      localStorage.setItem('users', JSON.stringify(persons));
+      const tbody = document.getElementById('tb');
+      tbody.innerHTML = '';
+      displayAll();
+    }
+  }
+  console.log(persons[idval.value]);
+      persons[idval.value].name = name.value;
+      persons[idval.value].email = email.value;
       // const arr = {
       //   'id': persons[idval.value].id,
       //   'name': name.value,
@@ -65,8 +62,7 @@ function update(){
       // persons[i] = {...persons[i], ...arr};
       // console.log(persons[i]);
       // localStorage.setItem('users', JSON.stringify(persons));
-    }
-  }
+
   // const index = persons.findIndex(user => user.id === idval.value);
   // if (index > -1) {
   //   alert(index)
